@@ -5,17 +5,150 @@
   font-display: swap;
 }
 
-/* Override Pico */
 :root {
   --pico-font-family-sans-serif: 'Inter', system-ui, sans-serif;
-  
+  --pico-spacing: 2rem;
+
+  --theme-palette-color-1: #98c1d9;
+  --theme-palette-color-2: #E84855;
+  --theme-palette-color-2: #fc0;
+  --theme-palette-color-3: #475671;
+  --theme-palette-color-4: #293241;
+  --theme-palette-color-5: #E7E9EF;
+  --theme-palette-color-6: #f3f4f7;
+  --theme-palette-color-7: #FBFBFC;
+  --theme-palette-color-8: #ffffff;
 }
 
 body {
   letter-spacing: -0.02em;
 }
 
-/* strong {
-  font-weight: 600;
+
+header {
+  background-color: var(--theme-palette-color-4);
+
+  a,
+  h1,
+  p {
+    color: var(--pico-primary-inverse);
+  }
+
+  .container > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: var(--theme-palette-color-2);
+    }
+  }
+  nav {
+    a {
+      font-size: .85rem;
+      font-weight: 500;
+    }
+    a[aria-current="page"] {
+      color: var(--theme-palette-color-1);
+    }
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 500;
+  }
+
+  
+  .subtitle {
+    color: var(--theme-palette-color-1);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+}
+
+body > main {
+  padding-top: 0;
+}
+.hero {
+  width: 100%;
+  height: clamp(350px, 50vw, 550px);
+  object-fit: cover;
+  object-position: center;
+}
+
+/* footer {
+  background-color: #ffcc00;
 } */
 
+footer,
+footer h2 {
+  font-size: .75rem;
+}
+
+footer p {
+  color: var(--pico-muted-color);
+}
+
+footer nav li {
+  padding-bottom: 0;
+
+  a {
+    padding-top: 0;
+  }
+}
+
+footer nav.legal ul {
+  flex-wrap: wrap;
+}
+
+footer nav.legal li {
+  padding-right: 0;
+}
+
+footer nav.legal li:not(:last-child)::after {
+  content: "·";
+  color: var(--pico-muted-color);
+  padding-left: var(--pico-nav-link-spacing-horizontal);
+}
+
+
+/* .h1 {
+  --pico-font-size: 2rem;
+  --pico-line-height: 1.125;
+  --pico-typography-spacing-top: 3rem;
+}
+
+.h2 {
+  --pico-font-size: 1.75rem;
+  --pico-line-height: 1.15;
+  --pico-typography-spacing-top: 2.625rem;
+}
+
+.h3 {
+  --pico-font-size: 1.5rem;
+  --pico-line-height: 1.175;
+  --pico-typography-spacing-top: 2.25rem;
+}
+
+.h4 {
+  --pico-font-size: 1.25rem;
+  --pico-line-height: 1.2;
+  --pico-typography-spacing-top: 1.874rem;
+}
+
+.h5 {
+  --pico-font-size: 1.125rem;
+  --pico-line-height: 1.225;
+  --pico-typography-spacing-top: 1.6875rem;
+}
+
+.h6 {
+  --pico-font-size: 1rem;
+  --pico-line-height: 1.25;
+  --pico-typography-spacing-top: 1.5rem;
+} */
