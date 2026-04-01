@@ -1,139 +1,262 @@
 @font-face {
   font-family: 'Inter';
   src: url('/assets/fonts/InterVariable.woff2') format('woff2');
-  font-weight: 100 900;
+  font-weight: 400 700;
   font-display: swap;
 }
 
 :root {
   --pico-font-family-sans-serif: 'Inter', system-ui, sans-serif;
-  --pico-spacing: 2rem;
+  /* --pico-spacing: 2rem; */
+  /* --pico-grid-column-gap: calc(var(--pico-spacing) * 3); */
+  /* --pico-grid-row-gap: var(--pico-spacing); */
+  
+  --theme-palette-olive-drab: #898e5d;
+  --theme-palette-crimson: #ba4147;
+  --theme-palette-royal-blue: #2e65c5;
+}
 
-  --theme-palette-color-1: #98c1d9;
-  --theme-palette-color-2: #E84855;
-  --theme-palette-color-2: #fc0;
-  --theme-palette-color-3: #475671;
-  --theme-palette-color-4: #293241;
-  --theme-palette-color-5: #E7E9EF;
-  --theme-palette-color-6: #f3f4f7;
-  --theme-palette-color-7: #FBFBFC;
-  --theme-palette-color-8: #ffffff;
+
+@media (min-width: 576px) {
+  :root {
+    --pico-font-size: 100%;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --pico-font-size: 106.25%;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --pico-font-size: 112.5%;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --pico-font-size: 118.75%;
+  }
+}
+
+details {
+  margin-bottom: 8px;
+  
+  & > div {
+    margin-bottom: var(--pico-spacing);
+  }
+}
+
+details[open]>summary {
+  margin-bottom: 1rem;
+}
+
+details:last-of-type {
+  margin-bottom: var(--pico-spacing);
 }
 
 body {
-  letter-spacing: -0.02em;
+  /* letter-spacing: -0.02em; */
+  overflow-x: hidden;
 }
 
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --pico-font-weight: 600;
+} */
+h1 {
+  --pico-font-size: 4rem;
+  --pico-font-weight: 600;
+}
 
 header {
-  background-color: var(--theme-palette-color-4);
-
-  a,
-  h1,
-  p {
-    color: var(--pico-primary-inverse);
+  nav a {
+    font-size: .875rem;
+    font-weight: 500;
   }
-
-  .container > div {
+  
+  .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  a {
-    text-decoration: none;
+}
 
-    &:hover {
-      color: var(--theme-palette-color-2);
-    }
-  }
-  nav {
-    a {
-      font-size: .85rem;
-      font-weight: 500;
-    }
-    a[aria-current="page"] {
-      color: var(--theme-palette-color-1);
-    }
-  }
 
-  h1 {
-    font-size: 4rem;
-    font-weight: 500;
-  }
-
-  
-  .subtitle {
-    color: var(--theme-palette-color-1);
+footer {
+  * {
     font-size: .8rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+  }
+  p {
+    color: var(--pico-muted-color);
+  }
+  nav li {
+    padding-bottom: 0;
+    
+    a {
+      padding-top: 0;
+      
+      &:hover {
+        color: var(--pico-muted-color);
+        text-decoration-color: var(--pico-muted-color);
+      }
+    }
+  }
+  
+  nav.legal {
+    ul {
+      flex-wrap: wrap;
+    }
+    li {
+      padding: 0 0 0 var(--pico-nav-element-spacing-horizontal);
+      &:not(:last-child)::after {
+        content: "·";
+        color: var(--pico-muted-color);
+        padding-left: var(--pico-nav-link-spacing-horizontal);
+      }
+    }
+    
   }
 }
 
-body > main {
-  padding-top: 0;
-}
-.hero {
-  width: 100%;
-  height: clamp(350px, 50vw, 550px);
-  object-fit: cover;
-  object-position: center;
-}
-
-/* footer {
-  background-color: #ffcc00;
-} */
-
-footer,
-footer h2 {
-  font-size: .75rem;
-}
-
-footer p {
-  color: var(--pico-muted-color);
-}
-
-footer nav li {
-  padding-bottom: 0;
-
-  a {
-    padding-top: 0;
+figure {
+  text-align: center;
+  margin-bottom: var(--pico-spacing);
+  img {
+    border-radius: 8px;
   }
 }
 
-footer nav.legal ul {
-  flex-wrap: wrap;
+.site-title {
+  text-decoration: none;
 }
 
-footer nav.legal li {
-  padding-right: 0;
-}
-
-footer nav.legal li:not(:last-child)::after {
-  content: "·";
+.subtitle {
   color: var(--pico-muted-color);
-  padding-left: var(--pico-nav-link-spacing-horizontal);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
+.lead {
+  font-size: 1.125rem;
+}
+
+.bleed {
+  margin-inline: calc(var(--pico-spacing) * -3);
+  img {
+    width: 100%;
+    height: clamp(350px, 50vw, 550px);
+    object-fit: cover;
+    object-position: center;  
+  }
+}
+
+.apex {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 12px;
+  grid-auto-flow: row;
+  justify-content: start;
+  margin: 0;
+  text-align: center;
+
+  p {
+    background-color: var(--pico-secondary-background);
+    border-radius: 12px;
+    color: var(--pico-primary-inverse);
+    font-size: .9rem;
+    padding: 1rem;
+  }
+}
+
+.fabrics {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0px 12px;
+  grid-auto-flow: row;
+  justify-items: start;
+  justify-content: start;
+  width: auto;
+
+  div {
+    &:first-of-type {
+      background-color: var(--theme-palette-olive-drab);
+    }
+
+    &:nth-of-type(2) {
+      background-color: var(--theme-palette-crimson);
+    }
+
+    &:last-of-type {
+      background-color: var(--theme-palette-royal-blue);
+    }
+
+    border-radius: 100%;
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .narrow {
+    max-width:40rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.top {
+  text-align: right;
+}
+
+.table-of-contents {
+  & > nav > ul {
+    /* border-left: 1px solid var(--pico-muted-border-color); */
+    margin: 0;
+      padding: 0;
+    li,a {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.notice {
+  background-color: var(--pico-primary-focus);
+  border-left-color: var(--pico-primary);
+}
+
+/**
+* FAQ
+*/
 
 /* .h1 {
   --pico-font-size: 2rem;
   --pico-line-height: 1.125;
   --pico-typography-spacing-top: 3rem;
-}
+} */
 
-.h2 {
+/* .h2 {
   --pico-font-size: 1.75rem;
   --pico-line-height: 1.15;
   --pico-typography-spacing-top: 2.625rem;
-}
+} */
 
-.h3 {
+/* .h3 {
   --pico-font-size: 1.5rem;
   --pico-line-height: 1.175;
   --pico-typography-spacing-top: 2.25rem;
-}
+} */
 
 .h4 {
   --pico-font-size: 1.25rem;
@@ -141,7 +264,7 @@ footer nav.legal li:not(:last-child)::after {
   --pico-typography-spacing-top: 1.874rem;
 }
 
-.h5 {
+/* .h5 {
   --pico-font-size: 1.125rem;
   --pico-line-height: 1.225;
   --pico-typography-spacing-top: 1.6875rem;
