@@ -72,6 +72,10 @@ h1 {
   --pico-font-weight: 600;
 }
 
+section {
+  margin-bottom: calc(var(--pico-spacing) * 2);
+}
+
 header {
   nav a {
     font-size: .875rem;
@@ -125,8 +129,12 @@ footer {
 figure {
   text-align: center;
   margin-bottom: var(--pico-spacing);
-  img {
+  /* img {
     border-radius: 8px;
+  } */
+
+  figcaption {
+    font-size: 0.875rem;
   }
 }
 
@@ -148,6 +156,7 @@ figure {
 
 .bleed {
   margin-inline: calc(var(--pico-spacing) * -3);
+  margin-top: calc(var(--pico-spacing) * 2);
   img {
     width: 100%;
     height: clamp(350px, 50vw, 550px);
@@ -211,13 +220,150 @@ figure {
   }
 }
 
+
+
+.notice {
+  padding: calc(var(--pico-spacing) * 2);
+  background-color: var(--pico-code-background-color);
+  border-left-color: var(--pico-primary);
+  border-radius: 4px;
+}
+
+/**
+ * Product
+ */
+
+/* Container global */
+.product-gallery {
+  max-width: 800px; /* limite la largeur de la galerie */
+  position: relative;
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover button {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Thumbnails */
+.product-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-items: center;
+  align-items: center;
+  
+  img {
+    cursor: pointer;
+    border: 2px solid transparent;
+    &.active {
+      border-color: var(--pico-primary-border);
+    }
+  } 
+}
+
+#prev { left: 0.5rem; }
+#next { right: 0.5rem; }
+
+.product-form {
+  /* font-size: .9rem; */
+  legend {
+    font-weight: 600;
+  }
+
+  /* fieldset {
+    background-color: var(--pico-code-background-color);
+    padding: var(--pico-spacing);
+  } */
+  /* [type=radio] {
+    width: 1em;
+    height: 1em;
+    margin-inline-end: 0.25em;
+  } */
+}
+
+.product-specs {
+  padding: calc(var(--pico-spacing) * 2);
+  background-color: var(--pico-code-background-color);
+  border-radius: 4px;
+
+  /* grid-template-columns: repeat(auto-fit?, minmax(75px, 1fr)); */
+  font-size: .9rem;
+}
+
+
+@media (min-width: 768px) {
+  .product-specs {
+    grid-template-columns: 1fr 1fr 1.5fr;
+    --pico-font-size: 100%;
+  }
+}
+
+.product-sizes {
+  
+  text-align:center;
+  header {
+    color: var(--pico-secondary-inverse);
+    background-color: var(--pico-secondary-background);
+  }
+
+  small {
+    color: var(--pico-secondary);
+    /* color: var(--pico-muted-color); */
+  }
+  table {
+    border: 1px solid var(--pico-muted-border-color);
+    th, td {
+      text-align:center;
+    }
+  }
+}
+
+.not-available {
+  color: var(--pico-del-color);
+  font-weight: 700;
+}
+
+.review {
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+  
+  font-size: 0.875rem;
+  
+  h3 {
+    font-size: 1rem;
+  }
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+    float: right;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/**
+* FAQ
+*/
 .top {
   text-align: right;
 }
 
-.table-of-contents {
+/* .table-of-contents {
   & > nav > ul {
-    /* border-left: 1px solid var(--pico-muted-border-color); */
     margin: 0;
       padding: 0;
     li,a {
@@ -229,49 +375,16 @@ figure {
       padding: 0;
     }
   }
-}
-
-.notice {
-  background-color: var(--pico-primary-focus);
-  border-left-color: var(--pico-primary);
-}
-
-/**
-* FAQ
-*/
-
-/* .h1 {
-  --pico-font-size: 2rem;
-  --pico-line-height: 1.125;
-  --pico-typography-spacing-top: 3rem;
 } */
 
-/* .h2 {
-  --pico-font-size: 1.75rem;
-  --pico-line-height: 1.15;
-  --pico-typography-spacing-top: 2.625rem;
-} */
 
-/* .h3 {
-  --pico-font-size: 1.5rem;
-  --pico-line-height: 1.175;
-  --pico-typography-spacing-top: 2.25rem;
-} */
-
-.h4 {
-  --pico-font-size: 1.25rem;
-  --pico-line-height: 1.2;
-  --pico-typography-spacing-top: 1.874rem;
+.table-of-contents{
+  li {
+    padding-bottom: 0;
+    padding-top: 0;
+    line-height: 1rem;
+  }
+  ul ul {
+    padding-left: 1.5rem;
+  }
 }
-
-/* .h5 {
-  --pico-font-size: 1.125rem;
-  --pico-line-height: 1.225;
-  --pico-typography-spacing-top: 1.6875rem;
-}
-
-.h6 {
-  --pico-font-size: 1rem;
-  --pico-line-height: 1.25;
-  --pico-typography-spacing-top: 1.5rem;
-} */
