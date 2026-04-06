@@ -36,10 +36,6 @@
   }
 }
 
-body {
-  overflow-x: hidden;
-}
-
 h1 {
   --pico-font-size: 4rem;
   --pico-font-weight: 600;
@@ -132,7 +128,10 @@ figure {
 }
 
 .bleed {
-  margin-inline: calc(var(--pico-spacing) * -3);
+  margin-inline: calc(var(--pico-spacing) * -1);
+  @media (min-width: 1024px) {
+    margin-inline: calc(var(--pico-spacing) * -3);
+  }
   margin-top: calc(var(--pico-spacing) * 2);
   img {
     width: 100%;
