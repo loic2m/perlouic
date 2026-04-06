@@ -38,7 +38,7 @@ const thumbsContainer = document.querySelector(".product-thumbnails");
 function showImage(index) {
   currentIndex = index;
   const imgObj = images[currentColor][currentIndex];
-  main.src = `/assets/img/${imgObj.src}`;
+  main.src = `assets/img/${imgObj.src}`;
   main.alt = imgObj.alt;
 
   // mettre à jour miniature active
@@ -53,7 +53,7 @@ function updateThumbnails() {
 
   images[currentColor].forEach((imgObj, i) => {
     const img = document.createElement("img");
-    img.src = `/assets/img/${imgObj.src}`;
+    img.src = `assets/img/${imgObj.src}`;
     img.alt = imgObj.alt;
     img.dataset.index = i;
     if (i === 0) img.classList.add("active");
@@ -108,7 +108,7 @@ function initLightbox() {
     if (glightboxInstance) glightboxInstance.destroy();
     
     const galleryElements = images[currentColor].map(imgObj => ({
-    href: `/assets/img/${imgObj.srcFull}`,
+    href: `assets/img/${imgObj.srcFull}`,
     type: 'image',
     title: imgObj.alt
 }));
