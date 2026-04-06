@@ -36,6 +36,10 @@
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
 h1 {
   --pico-font-size: 4rem;
   --pico-font-weight: 600;
@@ -137,6 +141,7 @@ figure {
     object-position: center;  
   }
 }
+
 
 @media (min-width: 1024px) {
   .narrow {
