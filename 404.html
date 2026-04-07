@@ -5,20 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Pour toute question ou information, vous pouvez nous contacter via email. Nous vous répondrons dans les 48 heures.">
-    <title>Contact - Vous avez une question sur le Quilt Oro ? – Perlouic</title>
+        content="Tu t’es égaré sur les sentiers du web ? Pas de panique ! Retourne sur le chemin principal de Perlouic et retrouve nos couettes de randonnée.">
+    <title>Oups… Tu t’es perdu ! – Perlouic</title>
     <link rel="preload" href="assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/pico.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-50FWKE50GN"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', 'G-50FWKE50GN');
+    <script>
+        // Redirections anciennes URLs vers nouvelles
+        const redirects = {
+            "/produit/quilt-oro": "/quilt-oro.html",
+            "/faq/": "/faq.html",
+            "/contact/": "/contact.html",
+            "/blog/": "/qu-est-ce-qu-un-quilt.html"
+        };
+
+        const path = window.location.pathname;
+        if (redirects[path]) {
+            window.location.replace(redirects[path]);
+        }
     </script>
 </head>
 
@@ -39,14 +45,19 @@
 
     <main class="container narrow">
         <section>
-            <h1>Contact</h1>
-            <p class="lead">Vous avez une question sur le Quilt Oro ? Écrivez-moi par email à contact@perlouic.com et je
-                vous répondrai dans les 48 heures.</p>
-            <blockquote class="notice">
-                <p>Bonjour 😊</p>
-                <p>Je ne prends plus de commande pour le moment.</p>
-                <p>Merci de votre compréhension 🙏,<br>Loïc</p>
-            </blockquote>
+            <h1>Oups… tu t’es perdu sur les sentiers !</h1>
+            <p class="lead">Pas de panique, même les meilleurs randonneurs se trompent de chemin. Cette page n’existe
+                pas… mais tu peux reprendre la route ici :</p>
+
+            <ul>
+                <li><a href="/">Accueil – Retour au camp de base</a></li>
+                <li><a href="/quilt-oro.html">Quilt Oro</a></li>
+                <li><a href="/faq.html">FAQ – Les sentiers les plus fréquentés</a></li>
+                <li><a href="/contact.html">Contact – Demande ton guide</a></li>
+            </ul>
+            
+            <p style="font-size: 3em; text-align:center;">🥾🌲🗺️</p>
+            <p>Ou juste respire un grand coup, ajuste ton sac à dos et continue l’aventure ! 🌲</p>
         </section>
     </main>
     <footer>
